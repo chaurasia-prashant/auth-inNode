@@ -4,8 +4,8 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 //import routes
-const authRoute = require("./routes/auth");
-const postRoute = require("./routes/private")
+const authRoute = require("./routes/userRegisteration");
+const loginRoute = require("./routes/userLogin");
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.use(express.json());
 
 // Connect database
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -27,7 +27,7 @@ connection.once('open', () => {
 
 //Route middleware
 
-app.use('/api/user', authRoute);
-app.use('/api/posts', postRoute);
+app.use('/auth/user', authRoute, loginRoute);
+// app.use('/auth/user', loginRoute);
 
 app.listen(port, () => console.log("server is running on 5000"));

@@ -7,16 +7,9 @@ const userSchema = new Schema({
     username: {
         type: String,
         required: true,
+        unique: false,
         trim: true,
         min: 4
-    },
-    nickName:{
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-        min: 4,
-        max:10
     },
     gender: {
         type: String,
@@ -29,12 +22,12 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true,
-        max:255,
-        min:6
+        max: 255,
+        min: 6
     },
-    dob:{
-        type:Date,
-        default:Date.now
+    dob: {
+        type: Date,
+        default: Date.now
     },
     password: {
         type: String,
