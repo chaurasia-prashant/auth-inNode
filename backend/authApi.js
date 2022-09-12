@@ -5,10 +5,11 @@ require('dotenv').config();
 
 //import routes
 const authRoute = require("./routes/auth");
+const postRoute = require("./routes/private")
 
 const app = express();
 
-//setup port
+//setup port and middleware
 const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
@@ -27,5 +28,6 @@ connection.once('open', () => {
 //Route middleware
 
 app.use('/api/user', authRoute);
+app.use('/api/posts', postRoute);
 
 app.listen(port, () => console.log("server is running on 5000"));
