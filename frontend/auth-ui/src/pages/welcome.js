@@ -7,8 +7,8 @@ export default class WelcomePage extends Component {
 
     render() {
         return (
-            <div>
-                <body >
+            <div className="bdy">
+               
                     <br />
                     <br />
                     <div>
@@ -19,17 +19,17 @@ export default class WelcomePage extends Component {
                     </div>
                     <div>
                         <a href='/register' className="text-white text-decoration-none">
-                            <div className="btn-prop1 text-center">
+                            <div className="btns-prop text-center">
                                 Sign up
                             </div>
                         </a>
                         <a href='/login' className="text-white text-decoration-none">
-                            <div className="btn-prop2 text-center">
+                            <div className="btns-prop1 text-center">
                                 Login
                             </div>
                         </a>
                     </div>
-                </body>
+                
             </div>
         )
     }

@@ -1,18 +1,18 @@
-body{
-    position: relative;
-    background: #dbc2f8;
-}
+
 
 .mainbox {
-    position: absolute;
-    left: 50%;
-    height: fit-content;
+    top: 50px;
+    left: auto;
+    right: 40%;
+    position: fixed; 
+    /* height: fit-content; */
+    min-height: 450px;
     width: fit-content;
     padding: 20px 40px;
     background: white;
     box-shadow: 0px 9px 29px -1px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    transform:translate(-50%,50%);
+    
 }
 
 .reg-title{
@@ -28,8 +28,8 @@ body{
     }
 
 .inp-title{
-    padding-top: 10px;
-    font-family: monospace;
+    padding-top:5px;
+    font-family: sans-serif;
     color: rgb(19, 19, 102);
 }
 
@@ -45,3 +45,85 @@ body{
     border: none;
     font-family: serif;
 }
+
+.radiobox{
+   
+    padding-left: 10px;
+}
+
+.gap{
+
+    padding-left: 30px;
+}
+
+.btn-prop{
+      background-color: #3908bd; /* Green */
+      border: none;
+      padding: 8px 30px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-left: 60%;
+      margin-top: 10%;
+      color: white;
+      box-shadow: 0px 9px 29px -1px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+      
+    }
+    
+    .btn-prop:hover {
+        background-color: rgb(56, 59, 255); /* Green */
+        
+       
+      }
+
+
+
+
+
+.btn-prop2{
+      position: absolute;
+      background-color: #9995a3; /* Green */
+      border: none;
+      bottom: 20px;
+        left: 20px;
+      padding: 8px 30px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      color: white;
+      box-shadow: 0px 9px 29px -1px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+      
+    }
+    
+    .btn-prop2:hover {
+        background-color: rgb(191, 191, 192); /* Green */
+        
+       
+      }
+
+      .btn-prop3{
+        position: absolute;
+        background-color: #3908bd; /* Green */
+        border: none;
+        bottom: 20px;
+        right: 20px;
+        padding: 8px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        color: white;
+        box-shadow: 0px 9px 29px -1px rgba(0, 0, 0, 0.25);
+      border-radius: 10px;
+        
+      }
+      
+      .btn-prop3:hover {
+          background-color: rgb(56, 59, 255); /* Green */
+          
+         
+        }
