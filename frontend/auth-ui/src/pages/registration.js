@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap'
@@ -23,6 +23,7 @@ export default class RegisterationPage extends Component {
         this.onRadioClick = this.onRadioClick.bind(this);
         this.togglePages = this.togglePages.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.handleError = this.handleError.bind(this);
 
 
         this.state = {
@@ -32,6 +33,7 @@ export default class RegisterationPage extends Component {
             email: "",
             password: "",
             confpassword: "",
+            errmessage:""
             
         }
     }
@@ -107,13 +109,20 @@ export default class RegisterationPage extends Component {
         }
     }
 
+    handleError(val){
+        if (val.response){
+            this.setState({
+                errmessage: val.response.data
+            })
+        }
+    }
 
 
     onSubmit(e) {
         e.preventDefault();
 
-        try {
-            if (this.state.password === this.state.confpassword) {
+        
+        if (this.state.password === this.state.confpassword) {
                 const user = {
                     username: this.state.username,
                     gender: this.state.gender,
@@ -121,11 +130,17 @@ export default class RegisterationPage extends Component {
                     email: this.state.email,
                     password: this.state.password,
                 }
-                console.log(user);
+                axios.post('http://localhost:6000/auth/user/register', user)
+            .catch(function (err) {
+                // this.handleError(err)
+                console.log(err);
+            })
             } 
-        } catch (err) {
+        else {
             console.log("password not matched");
         }
+           
+        
 
         
 
@@ -158,6 +173,9 @@ export default class RegisterationPage extends Component {
         return (
             <div>
 
+                <div>
+                <p>  {this.errmessage} </p> 
+                </div>
                 <div className="mainbox">
                     <h3 className="reg-title">CREATE ACCOUNT</h3>
                     {/* User info*/}

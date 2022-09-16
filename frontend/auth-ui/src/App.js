@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import WelcomePage from './pages/welcome';
 import RegistrationPage from './pages/registration';
 import LoginPage from './pages/login';
+import HomePage from './pages/home';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" exact element={<WelcomePage/>} />
         <Route path="/register" element={<RegistrationPage/>} />
         <Route path="/login" element={<LoginPage/>} />
+        <Route path="/home" element={<HomePage/>} />
         {/* <Route path="/edit/:id" element={<EditExercise/>} />
         <Route path="/create" element={<CreateExercise/>} />
         <Route path="/user" element={<CreateUser/>} /> */}

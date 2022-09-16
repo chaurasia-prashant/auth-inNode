@@ -10,7 +10,7 @@ const loginRoute = require("./routes/userLogin");
 const app = express();
 
 //setup port and middleware
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 6000;
 app.use(cors());
 app.use(express.json());
 

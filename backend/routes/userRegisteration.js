@@ -3,7 +3,7 @@ const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const {registerValidation} = require('../authController/validator/registerValidator')
+const { registerValidation } = require('../authController/validator/registerValidator')
 
 router.post('/register', async (req, res) => {
 
@@ -12,18 +12,18 @@ router.post('/register', async (req, res) => {
     if (validation.error) return res.status(400).send(validation.error.details[0].message);
 
     // Checking if the user is already in the database
-    const emailExist = await User.findOne({email: req.body.email})
-    if(emailExist) return res.status(400).send('Email already exist');
+    const emailExist = await User.findOne({ email: req.body.email })
+    if (emailExist) return res.status(400).send('Email already exist');
 
 
-    // Hash password
+    // Hash the password
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password,salt);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
     const user = new User({
         username: req.body.username,
         gender: req.body.gender,
-        age: Number(req.body.age),
+
         email: req.body.email,
         dob: Date.parse(req.body.dob),
         password: hashedPassword
@@ -37,7 +37,7 @@ router.post('/register', async (req, res) => {
     try {
 
         const savedUser = await user.save();
-        res.send({user: user.id});
+        res.send({ user: user.id });
 
     } catch (err) {
         res.status(400).send(err);
