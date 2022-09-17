@@ -10,9 +10,13 @@ const loginRoute = require("./routes/userLogin");
 const app = express();
 
 //setup port and middleware
-const port = process.env.PORT || 6000;
-app.use(cors());
+const port = process.env.PORT || 5000;
+app.use(cors({origin: true, credentials: true}));
 app.use(express.json());
+// app.use(function(req, res, next) {
+//     res.header('Access-Control-Allow-Methods', 'POST', 'GET', 'OPTIONS');
+//        next();
+//  });
 
 // Connect database
 const uri = process.env.ATLAS_URI;

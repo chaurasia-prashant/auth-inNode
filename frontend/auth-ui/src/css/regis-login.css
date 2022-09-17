@@ -87,7 +87,7 @@
       background-color: #9995a3; /* Green */
       border: none;
       bottom: 20px;
-        left: 20px;
+      left: 20px;
       padding: 8px 30px;
       text-align: center;
       text-decoration: none;
@@ -127,3 +127,10 @@
           
          
         }
+
+    .text-prop {
+        position: absolute;
+        color: rgb(39, 53, 134);
+        bottom: 55px;
+        left: 20px;
+    }

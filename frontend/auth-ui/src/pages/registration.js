@@ -130,11 +130,10 @@ export default class RegisterationPage extends Component {
                     email: this.state.email,
                     password: this.state.password,
                 }
-                axios.post('http://localhost:6000/auth/user/register', user)
-            .catch(function (err) {
-                // this.handleError(err)
-                console.log(err);
-            })
+                axios.post('http://localhost:5000/auth/user/register', user)
+                  .catch(function(error) {
+                    alert(error.response.data);
+                  });
             } 
         else {
             console.log("password not matched");
@@ -182,7 +181,7 @@ export default class RegisterationPage extends Component {
                     <div id="info" >
                         <div>
                             <div className="inp-title">Name</div>
-                            <div className="inp-field-box">
+                            <div className="inp-field-box">                             
                                 <input type="text"
                                     className="inp-field"
                                     value={this.state.username}
@@ -218,10 +217,7 @@ export default class RegisterationPage extends Component {
                             <div className="inp-title">Date Of Birth</div>
 
                             <div className="inp-field-box">
-                                {/* <input type="date" className="inp-field"
-                                value={this.state.dob}
-                                onChange={this.onChangeDate}
-                                /> */}
+                            
                                 <DatePicker  className="inp-field"
                             selected={this.state.dob}
                             onChange={this.onChangeDate}
@@ -269,15 +265,7 @@ export default class RegisterationPage extends Component {
                             Register
                             </div>
                     </div>
-                    {/* <div className="">
-                        <label>Username: </label>
-                        <input 
-                        type="text"
-                        className="form-control"
-                        value={this.state.username}
-                        onChange={this.onChangeUsername}
-                        />
-                    </div> */}
+                
                 </div>
             </div>
 
